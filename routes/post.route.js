@@ -50,7 +50,7 @@ router.post("/commentpost/:name", authenticate ,function(req,res){
         var collection = db.collection('posts');
         collection.updateOne({_id:objid},{ $push:{comments:{cmnt:comnt_body,user:req.user.uid}}})
          
-        res.redirect("/post/grouptimeline/"+ req.params.name)
+        res.json("/post/grouptimeline/"+ req.params.name)
 
         })
 
@@ -71,7 +71,7 @@ router.post("/answerQuest/:name", authenticate ,function(req,res){
         var collection = db.collection('posts');
         collection.updateOne({_id:objid},{ $push:{answers:{ans:comnt_body,user:req.user.uid}}})
          
-        res.redirect("/post/grouptimeline/"+ req.params.name)
+        res.json("/post/grouptimeline/"+ req.params.name)
 
         })
 
@@ -93,7 +93,7 @@ router.post("/answercomment/:ans", authenticate ,function(req,res){
         var collection = db.collection('posts');
         collection.updateOne({_id:objid},{ $push:{ans_comment:{ans:answer,cmnt:comnt_body,user:req.user.uid}}})
          
-        res.redirect("/post/grouptimeline/"+ name)
+        res.json("/post/grouptimeline/"+ name)
 
         })
 
@@ -115,7 +115,7 @@ router.post('/update/:id', authenticate, function(req,res){
         var collection = db.collection('posts');
         collection.updateOne({_id:objid},{$set:{body:Updated_body}})
          
-        res.redirect("/post/grouptimeline/"+ name)
+        res.json("/post/grouptimeline/"+ name)
 
         })
 
@@ -137,7 +137,7 @@ router.post('/delete/:id', authenticate , function(req,res){
         var collection = db.collection('posts');
         collection.deleteOne({_id:objid})
          
-        res.redirect("/post/grouptimeline/"+ name)
+        res.json("/post/grouptimeline/"+ name)
 
         })
 
