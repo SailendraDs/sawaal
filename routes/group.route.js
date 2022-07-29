@@ -18,7 +18,7 @@ const { authenticate, authorize } = require('../controllers/user.controller')
 // router.get('/:name',  getGroupInfo)
 
 // router.get('/create',function(req,res){
-//     res.render("user-groups")
+//     res.json("user-groups")
 // })
 
 
@@ -38,7 +38,7 @@ router.get('/grouphome/:id',authenticate,async function(req,res){
     console.log(login_id,user._id);
         
             Group.find({admin:User_id},function(err,foundgroups){
-                res.render("user-groups",{groups:foundgroups,User:user,LOG_user:login_id})  
+                res.json("user-groups",{groups:foundgroups,User:user,LOG_user:login_id})  
               })
        
     
@@ -51,7 +51,7 @@ router.get("/followers/:name",async function(req,res){
 	const name = req.params.name
 	const group = await Group.findOne({group_name:name})
 	console.log(group);
-	res.render("group-followers",{grroup:group})
+	res.json("group-followers",{grroup:group})
 })
 
 
