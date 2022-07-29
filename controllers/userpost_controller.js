@@ -62,7 +62,7 @@ const createPost = async (req, res) => {
 			payload: error
 		})
 	}
-	res.redirect("/userpost/timeline/"+ req.params.id )
+	res.json("/userpost/timeline/"+ req.params.id )
 }
 
 // Like a post from post_id, Required authentication
@@ -100,7 +100,7 @@ const likePost = async (req, res) => {
 				// 	liked: true
 				// })
 			}
-			res.redirect("/userpost/timeline/"+ post.author)
+			res.json("/userpost/timeline/"+ post.author)
 		} else {
 			return res.json({
 				error: "Post not found.",
@@ -295,7 +295,7 @@ const votePoll = async (req, res) => {
 			error: "Post is not a poll."
 		})
 	}
-	res.redirect("/userpost/timeline/"+ req.user.uid)
+	res.json("/userpost/timeline/"+ req.user.uid)
 }
 
 const createPoll = async (req, res) => {
@@ -357,7 +357,7 @@ const createPoll = async (req, res) => {
 			payload: error
 		})
 	}
-	res.redirect("/userpost/timeline/"+ req.user.uid)
+	res.json("/userpost/timeline/"+ req.user.uid)
 }
 
 const askQuestion = async (req, res) => {
@@ -420,7 +420,7 @@ const askQuestion = async (req, res) => {
 			payload: error
 		})
 	}
-	res.redirect("/userpost/timeline/"+ req.user.uid)
+	res.json("/userpost/timeline/"+ req.user.uid)
 }
 
 module.exports = {
