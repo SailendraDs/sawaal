@@ -50,7 +50,7 @@ const createGroup = async (req, res) => {
 			error: "Something went wrong."
 		})
 	}
-	res.redirect("/groups/grouphome")
+	res.json("/groups/grouphome")
 }
 
 // Get group info by group_name
@@ -154,7 +154,7 @@ const joinGroup = async (req, res) => {
 				await group.save()
 			}
 			console.log(group.members);
-			res.redirect("/post/grouptimeline/"+ req.params.name)
+			res.json("/post/grouptimeline/"+ req.params.name)
 		} else {
 			res.json({
 				error: "Group not found."
