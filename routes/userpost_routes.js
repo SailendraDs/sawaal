@@ -23,7 +23,7 @@ const { authenticate, authorize } = require('../controllers/user.controller')
 //     console.log(id);
 //     userPost.find({author:id},function(err,foundposts){
 //         // console.log(foundposts);
-//         res.render("user-timeline",{posts:foundposts})
+//         res.json("user-timeline",{posts:foundposts})
 //     })
     
 // })
@@ -36,14 +36,14 @@ router.get('/timeline/:id',authenticate, async (req, res) => {
    const user_post=await userPost.find({author:req.params.id})
 //    console.log(user_post);
 //    console.log(new_user);
-   res.render('user-timeline',{User:new_user,posts:user_post,login_id:user_id,User_id:id})
+   res.json('user-timeline',{User:new_user,posts:user_post,login_id:user_id,User_id:id})
    // MongoClient.connect('mongodb://localhost:27017', function(err, client) {
    //     if(err) throw err;
    //     var db =client.db("openDB")
    //     var collection = db.collection('users');
    // 	collection.findOne({_id:id},function(founduser){
    // 		console.log(founduser);
-   // 		res.render('user-timeline')
+   // 		res.json('user-timeline')
    // 	})
        
    // })
