@@ -7,7 +7,7 @@ const { UserRefreshClient } = require('googleapis-common')
 var MongoClient = require('mongodb').MongoClient;
 
 router.get('/login', (req, res) => {
-    res.render('login')
+    res.json('login')
 })
 
 router.get('/timeline',authenticate, async (req, res) => {
@@ -24,7 +24,7 @@ router.get('/timeline',authenticate, async (req, res) => {
     //     var collection = db.collection('users');
 	// 	collection.findOne({_id:id},function(founduser){
 	// 		console.log(founduser);
-	// 		res.render('user-timeline')
+	// 		res.json('user-timeline')
 	// 	})
 		
 	// })
