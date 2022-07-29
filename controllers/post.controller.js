@@ -64,7 +64,7 @@ const createPost = async (req, res) => {
 			payload: error
 		})
 	}
-	res.redirect("/post/grouptimeline/"+ group)
+	res.json("/post/grouptimeline/"+ group)
 }
 
 // Like a post from post_id, Required authentication
@@ -90,7 +90,7 @@ const likePost = async (req, res) => {
 			if (post.likes.indexOf(user_id) !== -1) {
 				post.likes = post.likes.filter(user => user !== user_id)
 				await post.save()
-				res.redirect("/post/grouptimeline/"+post.group)
+				res.json("/post/grouptimeline/"+post.group)
 				// res.json({
 				// 	message: 'Post disliked.',
 				// 	liked: false
@@ -98,7 +98,7 @@ const likePost = async (req, res) => {
 			} else {
 				post.likes.push(user_id)
 				await post.save()
-				res.redirect("/post/grouptimeline/"+ post.group)
+				res.json("/post/grouptimeline/"+ post.group)
 				// res.json({
 				// 	message: "Post liked.",
 				// 	liked: true
@@ -298,7 +298,7 @@ const votePoll = async (req, res) => {
 			error: "Post is not a poll."
 		})
 	}
-	res.redirect("/post/grouptimeline/"+group_name)
+	res.json("/post/grouptimeline/"+group_name)
 }
 
 const createPoll = async (req, res) => {
@@ -363,7 +363,7 @@ const createPoll = async (req, res) => {
 			payload: error
 		})
 	}
-	res.redirect("/post/grouptimeline/"+ group)
+	res.json("/post/grouptimeline/"+ group)
 }
 
 const askQuestion = async (req, res) => {
@@ -427,7 +427,7 @@ const askQuestion = async (req, res) => {
 			payload: error
 		})
 	}
-	res.redirect("/post/grouptimeline/"+ group)
+	res.json("/post/grouptimeline/"+ group)
 }
 
 module.exports = {
