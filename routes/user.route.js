@@ -55,8 +55,8 @@ router.post('/update/:id', authenticate, updateUser)
 
 router.get('/login/facebook', passport.authenticate('facebook', { scope: 'email' }))
 router.get('/callback/facebook', passport.authenticate('facebook', {
-	successRedirect: '/',
-	failureRedirect: '/api/user/failed/facebook'
+	successjson: '/',
+	failurejson: '/api/user/failed/facebook'
 }))
 
 router.get("/editprofile/:id",authenticate,async function(req,res){
@@ -75,8 +75,8 @@ router.get("/followers/:id",async function(req,res){
 
 router.get('/login/google', passport.authenticate('google', { scope: 'email' }))
 router.get('/callback/google', passport.authenticate('google', {
-	successRedirect: '/',
-	failureRedirect: '/api/user/failed/google'
+	successjson: '/',
+	failurejson: '/api/user/failed/google'
 }))
 
 router.get('/failed/facebook', (req, res)=>res.json({ error: 'Failed to authenticate' }))
