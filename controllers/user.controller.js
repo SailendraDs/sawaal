@@ -182,7 +182,7 @@ const authenticate = (req, res, next) => {
 			// })
 		}
 	} else {
-		res.redirect("/user/login")
+		res.json("/user/login")
 
 		// res.json({
 		// 	error: "Authantication failed",
@@ -251,7 +251,7 @@ const followUser = async (req, res) => {
 						$push:{notifications:{notification:notify}}
 					}
 					)
-					// res.redirect("/user/timeline"
+					// res.json("/user/timeline"
 				res.json("/userpost/timeline/"+post_id)
 				// res.json({
 				// 	message: 'Post disliked.',
