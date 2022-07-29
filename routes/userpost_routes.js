@@ -81,7 +81,7 @@ router.post("/commentpost/:id", authenticate ,async  function(req,res){
 
         })
        
-        res.redirect("/userpost/timeline/"+ req.params.id)
+        res.json("/userpost/timeline/"+ req.params.id)
     })
      
 })
@@ -110,7 +110,7 @@ router.post("/answerQuest/:id", authenticate ,async function(req,res){
         var collection = db.collection('userposts');
         collection.updateOne({_id:objid},{ $push:{answers:{ans:comnt_body,user:req.user.uid}}})
          
-        res.redirect("/userpost/timeline/"+ req.params.id)
+        res.json("/userpost/timeline/"+ req.params.id)
 
         })
 
@@ -142,7 +142,7 @@ router.post("/answercomment/:ans/:id", authenticate ,async function(req,res){
         var collection = db.collection('userposts');
         collection.updateOne({_id:objid},{ $push:{ans_comment:{ans:answer,cmnt:comnt_body,user:req.user.uid}}})
          
-        res.redirect("/userpost/timeline/"+ req.user.uid)
+        res.json("/userpost/timeline/"+ req.user.uid)
 
         })
 
@@ -165,7 +165,7 @@ router.post('/update/:id', authenticate, function(req,res){
         var collection = db.collection('userposts');
         collection.updateOne({_id:objid},{$set:{body:Updated_body}})
          
-        res.redirect("/userpost/timeline/"+ req.user.uid)
+        res.json("/userpost/timeline/"+ req.user.uid)
 
         })
 
@@ -187,7 +187,7 @@ router.post('/delete/:id', authenticate , function(req,res){
         var collection = db.collection('userposts');
         collection.deleteOne({_id:objid})
          
-        res.redirect("/userpost/timeline/"+ req.user.uid)
+        res.json("/userpost/timeline/"+ req.user.uid)
 
         })
 
