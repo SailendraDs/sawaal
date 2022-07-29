@@ -76,7 +76,7 @@ Question.save()
     // console.log(question_tag);
     // console.log(Question);
     console.log("Question Submitted successfully")
-    res.redirect("/")
+    res.json("/")
 })
 
 
@@ -125,7 +125,7 @@ router.post("/answers", authenticate,function(req,res){
         var collection = db.collection('questions');
         collection.updateOne({_id:objid},{ $push:{answers:{answer:User_answer,date_answer:dateAns,author:req.user.uid}}})
         console.log(User_answer);
-        res.redirect("/")
+        res.json("/")
 
         })
         
@@ -152,7 +152,7 @@ router.post("/comments", authenticate ,function(req,res){
         var collection = db.collection('questions');
         collection.updateOne({_id:objid},{ $push:{questComment:{qcommment:User_comment,date_comment:datecomm,author:req.user.uid}}})
         console.log(User_comment);
-        res.redirect("/")
+        res.json("/")
 
         })
         
@@ -174,7 +174,7 @@ router.post("/answercomment", authenticate ,function(req,res){
         var collection = db.collection('questions');
         collection.updateOne({_id:objid},{ $push:{answers:{comment:{commentbody:User_comment}}}})
         console.log(User_comment);
-        res.redirect("/")
+        res.json("/")
 
         })
         
@@ -210,7 +210,7 @@ router.post("/upvote", authenticate ,function(req,res){
         var collection = db.collection('questions');
         collection.updateOne({_id:objid},{ $set:{upvotes:upvote}})
         console.log(upvote);
-        res.redirect("/")
+        res.json("/")
 
         })
 
