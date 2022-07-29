@@ -5,8 +5,6 @@ const router = express.Router()
 const Group = require('../models/group.model')
 const User = require('../models/user.model')
 
-
-
 router.use(express.static('public'))
 const { append } = require("express/lib/response");
 
